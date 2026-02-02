@@ -1,12 +1,109 @@
 {
-  "title": "Vite React Tailwind Starter",
-  "features": "Features",
-  "modernstack": "Modern and efficient stack",
-  "modernstack-desc": "Built with Vite, React, Tailwind CSS, Shadcnui, and more",
-  "i18nsupport": "i18n support out of the box",
-  "i18nsupport-desc": "Ship your product with different languages natively",
-  "linters": "Lint all code at save",
-  "linters-desc": "Built with ESLint, Prettier, Stylelint, and Commitlint",
-  "hero-title": "Building Apps with the best DX we love",
-  "get-started": "Get Started"
+  "app": {
+    "name": "Craftfolio",
+    "tagline": "Build Resumes That Land Interviews"
+  },
+  "nav": {
+    "home": "Home",
+    "start": "Start Building",
+    "resume": "Resume Builder",
+    "preview": "Preview",
+    "signup": "Sign Up"
+  },
+  "home": {
+    "eyebrow": "FREE RESUME BUILDER",
+    "headline": "Your resume, crafted with care",
+    "subheadline": "A calm, guided experience that helps professionals create polished, recruiter-ready resumes — without the gimmicks or AI fluff.",
+    "cta": "Start Building — It's Free",
+    "noSignup": "No signup required to start",
+    "stats": {
+      "resumes": "Resumes created",
+      "rating": "User rating",
+      "time": "Average completion"
+    },
+    "benefits": {
+      "title": "Built for professionals who value their time",
+      "subtitle": "No bloat. No confusing options. Just a clear path from blank page to finished resume.",
+      "fast": {
+        "title": "Done in minutes",
+        "description": "Our guided flow gets you from blank page to polished resume in under 10 minutes."
+      },
+      "ats": {
+        "title": "ATS-friendly formats",
+        "description": "Clean, parseable layouts that pass applicant tracking systems every time."
+      },
+      "honest": {
+        "title": "No gimmicks",
+        "description": "No AI fluff or keyword stuffing. Just you, presented professionally."
+      }
+    }
+  },
+  "resume": {
+    "sections": {
+      "personal": "Personal Info",
+      "experience": "Experience",
+      "education": "Education",
+      "skills": "Skills"
+    },
+    "form": {
+      "fullName": "Full Name",
+      "jobTitle": "Job Title",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "summary": "Professional Summary",
+      "company": "Company",
+      "position": "Position",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "current": "I currently work here",
+      "description": "Description",
+      "institution": "Institution",
+      "degree": "Degree",
+      "field": "Field of Study",
+      "addExperience": "Add Experience",
+      "addEducation": "Add Education",
+      "addSkill": "Add a skill"
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "preview": "Preview Resume"
+    }
+  },
+  "preview": {
+    "title": "Preview Your Resume",
+    "backToEditor": "Back to editor",
+    "download": "Download PDF",
+    "print": "Print",
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "incomplete": "Almost there! Complete all sections for a polished resume.",
+    "continueEditing": "Continue editing",
+    "emptyState": "Your resume is empty. Start by adding your information.",
+    "startBuilding": "Start building"
+  },
+  "signup": {
+    "title": "Save your progress",
+    "subtitle": "Create a free account to save your resume and access it from any device.",
+    "benefits": {
+      "unlimited": "Save unlimited resumes",
+      "access": "Access from any device",
+      "track": "Track application status",
+      "updates": "Get notified of new features"
+    },
+    "form": {
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Create free account"
+    },
+    "hasAccount": "Already have an account?",
+    "login": "Log in"
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "copyright": "© {{year}} Craftfolio. All rights reserved."
+  }
 }

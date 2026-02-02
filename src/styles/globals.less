@@ -4,48 +4,83 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --radius: 0.5rem;
+    /*
+     * CRAFTFOLIO DESIGN SYSTEM
+     * Warm, confident, premium — "high-end stationery" aesthetic
+     * Typography: Fraunces (display) + DM Sans (body)
+     */
+
+    /* Core palette - warm neutrals */
+    --background: 40 20% 98%; /* Warm off-white, aged paper feel */
+    --foreground: 30 12% 12%; /* Warm charcoal, not pure black */
+
+    /* Cards & surfaces */
+    --card: 40 25% 99%; /* Slightly warmer than bg */
+    --card-foreground: 30 12% 12%;
+    --popover: 40 25% 99%;
+    --popover-foreground: 30 12% 12%;
+
+    /* Primary action - deep warm black */
+    --primary: 30 10% 10%;
+    --primary-foreground: 40 20% 98%;
+
+    /* Secondary - muted warm gray */
+    --secondary: 35 12% 93%;
+    --secondary-foreground: 30 10% 20%;
+
+    /* Muted text & backgrounds */
+    --muted: 35 10% 94%;
+    --muted-foreground: 30 8% 45%;
+
+    /* Accent - warm amber/gold (confidence, premium) */
+    --accent: 38 92% 50%;
+    --accent-foreground: 30 10% 10%;
+
+    /* Semantic colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 72% 35%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders & inputs */
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 38 92% 50%; /* Accent color for focus */
+
+    /* Radius - subtle, not bubbly */
+    --radius: 0.375rem;
+
+    /* Shadows - warm tinted */
+    --shadow-color: 30 20% 10%;
+
+    /* Spacing rhythm (reference) */
+    --space-unit: 0.25rem; /* 4px base */
   }
 
+  /* Dark mode - Notion-inspired warmth */
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --background: 30 12% 8%; /* Warm dark, not cold gray */
+    --foreground: 40 15% 92%; /* Warm white */
+    --card: 30 10% 11%;
+    --card-foreground: 40 15% 92%;
+    --popover: 30 10% 11%;
+    --popover-foreground: 40 15% 92%;
+    --primary: 40 15% 95%;
+    --primary-foreground: 30 12% 8%;
+    --secondary: 30 8% 18%;
+    --secondary-foreground: 40 12% 85%;
+    --muted: 30 8% 18%;
+    --muted-foreground: 35 8% 55%;
+    --accent: 38 88% 55%;
+    --accent-foreground: 30 12% 8%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 38 88% 55%;
+    --shadow-color: 0 0% 0%;
   }
 }
 
@@ -54,8 +89,138 @@
     border-color: hsl(var(--border));
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Display typography - Fraunces */
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: Fraunces, Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  }
+
+  /* Focus states - visible and on-brand */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: hsl(var(--accent) / 20%);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Utility classes for the design system */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: Fraunces, Georgia, serif;
+  }
+
+  .shadow-warm-sm {
+    box-shadow: 0 1px 2px 0 hsl(var(--shadow-color) / 4%), 0 1px 3px 0 hsl(var(--shadow-color) / 8%);
+  }
+
+  .shadow-warm {
+    box-shadow: 0 2px 4px 0 hsl(var(--shadow-color) / 4%), 0 4px 12px 0 hsl(var(--shadow-color) / 8%);
+  }
+
+  .shadow-warm-lg {
+    box-shadow: 0 4px 8px 0 hsl(var(--shadow-color) / 4%), 0 8px 24px 0 hsl(var(--shadow-color) / 12%);
+  }
+}
+
+/* Print styles for resume document */
+@media print {
+  /* Hide non-print elements */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset page styles */
+  @page {
+    size: a4 portrait;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Print area takes full page */
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Ensure proper font rendering */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Avoid page breaks in the middle of content */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
