@@ -1,70 +1,41 @@
-## Vite-React-TS-Tailwind-Starter
+# Resume Builder
 
-Choosing a technology stack is a very subjective matter, if you happen to like using `Vite`, `Tailwind`, `TS` and `shadcn ui` and more to build React SPA applications, then give it a try.
+A modern, production-ready frontend for a resume builder application. Currently **in active development** and will be deployed on Vercel.
 
-## Run
+> **Status**: Work in Progress
+> **Deployment**: Vercel
 
+## Technology Stack
 
-```sh
-yarn
-yarn dev
-```
+| Frontend | Build & Dev | Styling | i18n | Quality |
+|----------|-------------|---------|------|---------|
+| [![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)](https://reactjs.org/) | [![Vite](https://img.shields.io/badge/Vite-5+-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/) | [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3+-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/) | [![i18next](https://img.shields.io/badge/i18next-23+-26A69A?style=flat-square)](https://www.i18next.com/) | [![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/) |
+| [![React Router](https://img.shields.io/badge/React%20Router-6+-CA4245?style=flat-square&logo=react-router)](https://reactrouter.com/) | [![PostCSS](https://img.shields.io/badge/PostCSS-8+-DD3A0A?style=flat-square&logo=postcss)](https://postcss.org/) | [![Less](https://img.shields.io/badge/Less-4+-1D365D?style=flat-square&logo=less)](http://lesscss.org/) | [![Transmart](https://img.shields.io/badge/Transmart-Automated-FF6B6B?style=flat-square)](https://github.com/Quilljou/transmart) | [![ESLint](https://img.shields.io/badge/ESLint-8+-4B32C3?style=flat-square&logo=eslint)](https://eslint.org/) |
+| [![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-Components-000000?style=flat-square)](https://ui.shadcn.com/) | [![SVGR](https://img.shields.io/badge/SVGR-SVG%20Handling-62D9EA?style=flat-square)](https://react-svgr.com/) | [![CSS Variables](https://img.shields.io/badge/CSS%20Variables-Theming-0E7FCF?style=flat-square)](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) | | [![Prettier](https://img.shields.io/badge/Prettier-Code%20Formatting-F7B93E?style=flat-square&logo=prettier)](https://prettier.io/) |
+| [![Lucide Icons](https://img.shields.io/badge/Lucide-Icons-F1635F?style=flat-square)](https://lucide.dev/) | | | | [![Husky](https://img.shields.io/badge/Husky-Git%20Hooks-C41E3A?style=flat-square)](https://typicode.github.io/husky/) |
 
-We prefer `Yarn` as package manager, If you want to use `pnpm` or `npm`, feel free to use
+## Architecture
 
-
-## Tech Stack
-
-- [vite](https://vitejs.dev/)
-- [react](https://reactjs.org/)
-- [shadcn ui](https://ui.shadcn.com/)
-- [react-i18next](https://github.com/i18next/react-i18next)
-- [react-lucide](https://lucide.dev/)
-- [transmart](https://github.com/Quilljou/transmart)
-- [react-query](https://tanstack.com/query/latest/)
-- [tailwindcss](https://tailwindcss.com/)
-- [less](http://lesscss.org/)
-- [postcss](https://postcss.org/)
-- [react-router-dom](https://reactrouter.com/en/6.16.0)
-- [eslint](https://eslint.org/)/[stylelint](https://stylelint.io/)
-- [prettier](https://prettier.io/)
-- [svgr](https://react-svgr.com/)
-- [editorconfig](https://editorconfig.org/)
-- [husky](https://typicode.github.io/husky/#/)/[lint-staged](https://github.com/okonet/lint-staged)
-- [commitlint](https://commitlint.js.org/)
-
+- **Hash-based Routing**: Optimized for static hosting (GitHub Pages, Vercel)
+- **i18n Support**: 11 languages with automated translation via Transmart
+- **Type-Safe**: Strict TypeScript configuration with zero implicit any
+- **Code Quality**: ESLint, Stylelint, Prettier, and Commitlint enforced via Husky pre-commit hooks
+- **Component Library**: shadcn/ui components with Tailwind CSS styling
 
 ## Project Structure
 
-```sh
-src
-├── app.tsx     # App entry
-├── assets      # Assets for images, favicon etc
-├── components  # React components
-├── hooks       # React hooks
-├── i18n        # i18n files
-├── lib         # Utils、tools、services
-├── main.tsx    # File entry
-├── pages       # One .tsx per page
-├── router.tsx  # Routers
-├── styles      # Less files
-├── types       # Typescript types
-└── vite-env.d.ts
+```
+src/
+├── components/       # React components (UI library + custom)
+├── hooks/            # Custom React hooks
+├── i18n/             # Internationalization (11 languages)
+├── lib/              # Utilities, constants, and helpers
+├── pages/            # Page components (Home, Resume, About)
+├── styles/           # Global LESS stylesheets
+├── types/            # TypeScript type definitions
+├── app.tsx           # Root component
+├── main.tsx          # Application entry point
+└── router.tsx        # Route configuration
 ```
 
-## Deploy
 
-[Cloudflare Pages](https://pages.cloudflare.com/) is my first option to deploy React App，follow [this documentation](https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-site/#deploying-with-cloudflare-pages) to deploy your site. Don't forget build directory should	choose `dist`
-
-[Vercel](https://pages.cloudflare.com/) is a good option too，Go to [Vercel](https://vercel.com/new) and link to your Git Repo
-
-Enjoy building.
-
-
-## Related
-
-- [Next Starter](https://github.com/Quilljou/next-ts-tailwind-starter)
-
-- [React Starter](https://github.com/Quilljou/vite-react-ts-tailwind-starter)
-
-- [Figma Starter](https://github.com/Quilljou/figma-react-tailwind-starter)
