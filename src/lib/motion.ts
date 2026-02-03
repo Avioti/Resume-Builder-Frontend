@@ -1,7 +1,7 @@
 import { Variants } from 'framer-motion'
 
 /**
- * CRAFTFOLIO MOTION SYSTEM
+ * BEATTHEATS MOTION SYSTEM
  * Calm, confident animations that feel intentional — not flashy or gimmicky
  * Timing: 0.3-0.5s for micro, 0.5-0.8s for page transitions
  * Easing: Custom ease-out curves for natural deceleration

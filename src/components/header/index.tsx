@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { FileText } from 'lucide-react'
+import { Target } from 'lucide-react'
 
 // Progress steps for the resume builder flow
 const BUILDER_STEPS = [
@@ -68,9 +68,9 @@ export function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-foreground transition-opacity hover:opacity-80">
           <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-            <FileText className="h-4 w-4 text-primary-foreground" />
+            <Target className="h-4 w-4 text-primary-foreground" />
           </div>
-          <span className="font-display text-lg font-semibold tracking-tight">Craftfolio</span>
+          <span className="text-lg font-bold tracking-tight">BeatTheATS</span>
         </Link>
 
         {/* Center: Progress indicator (only in builder flow) */}

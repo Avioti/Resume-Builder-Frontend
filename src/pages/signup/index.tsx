@@ -7,8 +7,11 @@ function SignupPage() {
   return (
     <>
       <Helmet>
-        <title>Save Your Resume — Craftfolio</title>
-        <meta name="description" content="Create a free account to save your resume and access it anytime." />
+        <title>Save Your Resume — BeatTheATS</title>
+        <meta
+          name="description"
+          content="Create a free account to save your ATS-optimized resume and access it anytime."
+        />
       </Helmet>
 
       <div className="container py-12 md:py-20">

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react'
-import { useResume, Education } from 'src/lib/resume-context'
+import { useExtendedResume, Education } from 'src/lib/extended-resume-context'
 import { Input, Textarea } from './personal-info'
 
 interface EducationItemProps {
@@ -10,7 +10,7 @@ interface EducationItemProps {
 }
 
 function EducationItem({ education, isOpen, onToggle }: EducationItemProps) {
-  const { updateEducation, removeEducation } = useResume()
+  const { updateEducation, removeEducation } = useExtendedResume()
 
   return (
     <div className="rounded-lg border border-border bg-background">
@@ -106,7 +106,7 @@ function EducationItem({ education, isOpen, onToggle }: EducationItemProps) {
 }
 
 export function EducationForm() {
-  const { data, addEducation } = useResume()
+  const { data, addEducation } = useExtendedResume()
   const [openId, setOpenId] = useState<string | null>(
     data.education.length > 0 ? data.education[data.education.length - 1].id : null,
   )

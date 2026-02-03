@@ -1,4 +1,4 @@
-import { useResume } from 'src/lib/resume-context'
+import { useExtendedResume } from 'src/lib/extended-resume-context'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
@@ -45,7 +45,7 @@ function Textarea({ label, id, error, className = '', ...props }: TextareaProps)
 }
 
 export function PersonalInfoForm() {
-  const { data, updatePersonal } = useResume()
+  const { data, updatePersonal } = useExtendedResume()
   const { personal } = data
 
   return (

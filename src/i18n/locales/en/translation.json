@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Craftfolio",
-    "tagline": "Build Resumes That Land Interviews"
+    "name": "BeatTheATS",
+    "tagline": "ATS-Optimized Resume Builder"
   },
   "nav": {
     "home": "Home",
@@ -11,30 +11,30 @@
     "signup": "Sign Up"
   },
   "home": {
-    "eyebrow": "FREE RESUME BUILDER",
-    "headline": "Your resume, crafted with care",
-    "subheadline": "A calm, guided experience that helps professionals create polished, recruiter-ready resumes — without the gimmicks or AI fluff.",
-    "cta": "Start Building — It's Free",
-    "noSignup": "No signup required to start",
+    "eyebrow": "ATS-OPTIMIZED RESUME BUILDER",
+    "headline": "Get past the ATS and land interviews",
+    "subheadline": "75% of resumes never reach a human. Build yours with ATS-optimized formatting that passes applicant tracking systems and gets you in front of recruiters.",
+    "cta": "Build Your ATS-Ready Resume",
+    "noSignup": "Free • No signup required",
     "stats": {
-      "resumes": "Resumes created",
-      "rating": "User rating",
-      "time": "Average completion"
+      "resumes": "Resumes passed ATS",
+      "rating": "Interview rate",
+      "time": "To build"
     },
     "benefits": {
-      "title": "Built for professionals who value their time",
-      "subtitle": "No bloat. No confusing options. Just a clear path from blank page to finished resume.",
+      "title": "Why most resumes fail ATS screening",
+      "subtitle": "Applicant tracking systems reject resumes with complex formatting, graphics, and non-standard layouts. BeatTheATS ensures you get through.",
       "fast": {
-        "title": "Done in minutes",
-        "description": "Our guided flow gets you from blank page to polished resume in under 10 minutes."
+        "title": "Ready in minutes",
+        "description": "Our guided flow gets you from blank page to ATS-ready resume in under 10 minutes."
       },
       "ats": {
-        "title": "ATS-friendly formats",
-        "description": "Clean, parseable layouts that pass applicant tracking systems every time."
+        "title": "ATS-optimized formatting",
+        "description": "Clean, machine-readable layouts that pass applicant tracking systems every time."
       },
       "honest": {
-        "title": "No gimmicks",
-        "description": "No AI fluff or keyword stuffing. Just you, presented professionally."
+        "title": "Recruiter-approved",
+        "description": "No fancy graphics that break ATS parsing. Just clean, professional formatting."
       }
     }
   },
@@ -78,7 +78,7 @@
     "print": "Print",
     "copyLink": "Copy link",
     "copied": "Copied!",
-    "incomplete": "Almost there! Complete all sections for a polished resume.",
+    "incomplete": "Almost there! Complete all sections for a polished ATS-optimized resume.",
     "continueEditing": "Continue editing",
     "emptyState": "Your resume is empty. Start by adding your information.",
     "startBuilding": "Start building"
@@ -104,6 +104,6 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "contact": "Contact",
-    "copyright": "© {{year}} Craftfolio. All rights reserved."
+    "copyright": "© {{year}} BeatTheATS. All rights reserved."
   }
 }

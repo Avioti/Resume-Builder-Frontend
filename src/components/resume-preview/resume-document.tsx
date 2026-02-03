@@ -1,4 +1,4 @@
-import { useResume } from 'src/lib/resume-context'
+import { useExtendedResume } from 'src/lib/extended-resume-context'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
 interface ResumeDocumentProps {
@@ -11,7 +11,7 @@ interface ResumeDocumentProps {
  * Designed for A4 paper (210mm × 297mm) with professional typography.
  */
 export function ResumeDocument({ scale = 1 }: ResumeDocumentProps) {
-  const { data } = useResume()
+  const { data } = useExtendedResume()
   const { personal, experiences, education, skills } = data
 
   // Format date for display (e.g., "Jan 2024")

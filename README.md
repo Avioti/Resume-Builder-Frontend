@@ -1,15 +1,15 @@
-# Craftfolio
+# BeatTheATS
 
-A modern, production-ready resume builder frontend. Create polished, professional resumes in minutes with a calm, guided experience.
+A modern, production-ready ATS-optimized resume builder. Get past applicant tracking systems and land interviews.
 
 > **Status**: Production Ready
 > **Live Demo**: Coming soon on Vercel
 
 ## Features
 
+- 🎯 **ATS-Optimized** — Clean, machine-readable formatting that passes ATS
+- 📄 **A4 Print-Ready** — Professional single-column layout
 - ✨ **Guided Builder** — Step-by-step form with real-time preview
-- 📄 **A4 Print-Ready** — Professional layout optimized for ATS
-- 🎨 **Warm, Confident Design** — Premium "high-end stationery" aesthetic
 - 🌍 **11 Languages** — Automated i18n via Transmart
 - 📱 **Fully Responsive** — Works on all devices
 - 🔒 **Privacy First** — Data stays in localStorage (no account required)
@@ -32,7 +32,7 @@ A modern, production-ready resume builder frontend. Create polished, professiona
 - **Type-Safe**: Strict TypeScript configuration with zero implicit any
 - **Code Quality**: ESLint, Stylelint, Prettier, and Commitlint enforced via Husky
 - **Component Library**: shadcn/ui components with Tailwind CSS styling
-- **Motion Design**: Framer Motion for calm, confident animations
+- **Motion Design**: Framer Motion for bold, confident animations
 
 ## Project Structure
 
@@ -93,11 +93,11 @@ Open [http://localhost:5000](http://localhost:5000) to view the app.
 
 ## Design System
 
-- **Typography**: Fraunces (display) + DM Sans (body) via Google Fonts
-- **Colors**: Warm neutrals with amber accent (`#f59e0b`)
+- **Typography**: Inter (ATS-safe sans-serif) via Google Fonts
+- **Colors**: Electric blue primary (`#2563eb`) with green accent (`#16a34a`)
 - **Spacing**: 4px base unit, consistent rhythm
-- **Shadows**: Warm-tinted for depth
-- **Animations**: Calm, confident (0.2-0.5s durations)
+- **Shadows**: Cool-tinted for depth
+- **Animations**: Bold, confident (0.2-0.5s durations)
 
 See [src/styles/globals.less](src/styles/globals.less) for CSS variables.
 

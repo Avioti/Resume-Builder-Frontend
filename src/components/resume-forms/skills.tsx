@@ -1,6 +1,6 @@
 import { useState, KeyboardEvent } from 'react'
 import { X, Plus } from 'lucide-react'
-import { useResume } from 'src/lib/resume-context'
+import { useExtendedResume } from 'src/lib/extended-resume-context'
 
 const SUGGESTED_SKILLS = [
   'JavaScript',
@@ -21,7 +21,7 @@ const SUGGESTED_SKILLS = [
 ]
 
 export function SkillsForm() {
-  const { data, setSkills } = useResume()
+  const { data, setSkills } = useExtendedResume()
   const [inputValue, setInputValue] = useState('')
 
   const addSkill = (skill: string) => {

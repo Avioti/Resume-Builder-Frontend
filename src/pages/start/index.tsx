@@ -1,18 +1,22 @@
+import { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Clock, Sparkles, Shield } from 'lucide-react'
+import { ArrowRight, Clock, Sparkles, Shield, Upload } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { getBuilderLayout } from 'src/components/layout'
 import { fadeInUp, staggerContainer } from 'src/lib/motion'
+import { ImportModal } from 'src/components/import-modal'
 
 function StartPage() {
+  const [showImportModal, setShowImportModal] = useState(false)
+
   return (
     <>
       <Helmet>
-        <title>Start Your Resume — Craftfolio</title>
+        <title>Start Building — BeatTheATS</title>
         <meta
           name="description"
-          content="Begin creating your professional resume in minutes. No sign-up required to start."
+          content="Build an ATS-optimized resume that gets past applicant tracking systems. No sign-up required."
         />
       </Helmet>
 
@@ -20,9 +24,9 @@ function StartPage() {
         <motion.div className="mx-auto max-w-2xl" initial="hidden" animate="visible" variants={staggerContainer}>
           {/* Header */}
           <motion.header variants={fadeInUp} className="mb-12 text-center">
-            <h1 className="mb-4 font-display text-display-md text-foreground">Let&apos;s build your resume</h1>
+            <h1 className="mb-4 font-display text-display-md text-foreground">Build your ATS-ready resume</h1>
             <p className="text-lg text-muted-foreground">
-              Answer a few questions and we&apos;ll help you create a polished, professional resume.
+              Answer a few questions and create a resume that passes applicant tracking systems.
             </p>
           </motion.header>
 
@@ -31,8 +35,8 @@ function StartPage() {
             <ul className="grid gap-4 sm:grid-cols-3">
               {[
                 { icon: Clock, label: '5 minutes', sub: 'to complete' },
-                { icon: Sparkles, label: 'Guided flow', sub: 'step by step' },
-                { icon: Shield, label: 'No signup', sub: 'to start' },
+                { icon: Shield, label: 'ATS-safe', sub: 'formatting' },
+                { icon: Sparkles, label: 'No signup', sub: 'to start' },
               ].map((item, i) => (
                 <motion.li
                   key={item.label}
@@ -64,19 +68,25 @@ function StartPage() {
               </Link>
             </motion.div>
 
-            {/* Future: Upload existing resume option */}
-            <div className="flex items-center justify-between rounded-lg border border-dashed border-border bg-muted/30 p-6 opacity-60">
-              <div>
-                <h2 className="mb-1 font-display text-lg font-medium text-foreground">Import existing resume</h2>
-                <p className="text-sm text-muted-foreground">Upload a PDF or paste from LinkedIn</p>
-              </div>
-              <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-                Coming soon
-              </span>
-            </div>
+            {/* Import existing resume */}
+            <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+              <button
+                onClick={() => setShowImportModal(true)}
+                className="shadow-warm-sm hover:shadow-warm group flex w-full items-center justify-between rounded-lg border border-border bg-card p-6 text-left transition-all hover:border-primary/50"
+              >
+                <div>
+                  <h2 className="mb-1 font-display text-lg font-medium text-foreground">Import existing resume</h2>
+                  <p className="text-sm text-muted-foreground">Upload a PDF or DOCX to auto-fill the builder</p>
+                </div>
+                <Upload className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
+              </button>
+            </motion.div>
           </motion.section>
         </motion.div>
       </div>
+
+      {/* Import Modal */}
+      <ImportModal isOpen={showImportModal} onClose={() => setShowImportModal(false)} />
     </>
   )
 }

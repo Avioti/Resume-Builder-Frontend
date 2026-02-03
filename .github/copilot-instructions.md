@@ -1,8 +1,8 @@
-# Copilot Instructions for vite-react-tailwind-starter
+# Copilot Instructions for BeatTheATS
 
 ## Architecture Overview
 
-This is a Vite + React + TypeScript SPA using hash-based routing. The app is structured around these key concepts:
+This is a Vite + React + TypeScript SPA using hash-based routing. The app is an **ATS-optimized resume builder** with a confident, competitive brand identity. Key concepts:
 
 - **Page layouts via static methods**: Each page component can define a static `getLayout()` method (see [src/router.tsx](../src/router.tsx#L13-L14)). If undefined, `getDefaultLayout` wraps pages with the Header component.
 - **Hash routing**: Uses `createHashRouter` from react-router-dom for GitHub Pages compatibility

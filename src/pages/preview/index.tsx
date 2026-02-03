@@ -1,20 +1,38 @@
 import { useState, useRef, useCallback } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Download, Printer, Check, Copy, Edit3, ZoomIn, ZoomOut } from 'lucide-react'
+import {
+  ArrowLeft,
+  Download,
+  Printer,
+  Check,
+  Copy,
+  Edit3,
+  ZoomIn,
+  ZoomOut,
+  Palette,
+  Shield,
+  AlertTriangle,
+  X,
+} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getBuilderLayout } from 'src/components/layout'
-import { useResume } from 'src/lib/resume-context'
-import { ResumeDocument } from 'src/components/resume-preview/resume-document'
+import { useExtendedResume } from 'src/lib/extended-resume-context'
+import { useTemplate } from 'src/lib/template-context'
+import { TemplatedResumeDocument } from 'src/components/resume-preview'
+import { TemplateSelector } from 'src/components/template-selector'
+import { ATSScorePanel } from 'src/components/ats-score-panel'
 
 // Zoom levels
 const ZOOM_LEVELS = [0.5, 0.75, 1, 1.25, 1.5] as const
 
 function PreviewPage() {
   const navigate = useNavigate()
-  const { isPersonalComplete, isExperienceComplete, isEducationComplete, isSkillsComplete } = useResume()
+  const { isPersonalComplete, isExperienceComplete, isEducationComplete, isSkillsComplete } = useExtendedResume()
+  const { template } = useTemplate()
   const [zoomIndex, setZoomIndex] = useState(1) // Default to 0.75
   const [copied, setCopied] = useState(false)
+  const [showTemplates, setShowTemplates] = useState(false)
   const previewRef = useRef<HTMLDivElement>(null)
 
   const currentZoom = ZOOM_LEVELS[zoomIndex]
@@ -57,8 +75,8 @@ function PreviewPage() {
   return (
     <>
       <Helmet>
-        <title>Preview Your Resume — Craftfolio</title>
-        <meta name="description" content="Preview and download your professional resume." />
+        <title>Preview Your Resume — BeatTheATS</title>
+        <meta name="description" content="Preview and download your ATS-optimized resume." />
       </Helmet>
 
       {/* Print-only styles */}
@@ -123,6 +141,21 @@ function PreviewPage() {
 
               {/* Right: Actions */}
               <div className="flex items-center gap-2">
+                {/* Template selector button */}
+                <button
+                  type="button"
+                  onClick={() => setShowTemplates(true)}
+                  className={`inline-flex h-9 items-center gap-2 rounded-md border px-3 text-sm font-medium transition-all ${
+                    template.atsRisk === 'safe'
+                      ? 'border-green-200 bg-green-50 text-green-700 hover:bg-green-100'
+                      : 'border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100'
+                  }`}
+                >
+                  {template.atsRisk === 'safe' ? <Shield className="h-4 w-4" /> : <AlertTriangle className="h-4 w-4" />}
+                  <span className="hidden sm:inline">{template.name}</span>
+                  <Palette className="h-4 w-4 opacity-60" />
+                </button>
+
                 <button
                   type="button"
                   onClick={handleCopyLink}
@@ -189,28 +222,38 @@ function PreviewPage() {
             )}
           </AnimatePresence>
 
-          {/* Resume document wrapper */}
-          <motion.div
-            className="mx-auto"
-            style={{ maxWidth: `calc(210mm * ${currentZoom} + 4rem)` }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Paper shadow container */}
+          {/* Two-column layout: Resume + ATS Panel */}
+          <div className="grid gap-8 lg:grid-cols-[1fr,380px]">
+            {/* Resume document wrapper */}
             <motion.div
-              ref={previewRef}
-              className="print-area shadow-warm-lg mx-auto overflow-hidden rounded-lg border border-border bg-white"
-              style={{ width: `calc(210mm * ${currentZoom})` }}
-              layout
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <ResumeDocument scale={currentZoom} />
+              {/* Paper shadow container */}
+              <motion.div
+                ref={previewRef}
+                className="print-area shadow-warm-lg overflow-hidden rounded-lg border border-border bg-white"
+                style={{
+                  width: `calc(210mm * ${currentZoom})`,
+                  height: `calc(297mm * ${currentZoom})`,
+                }}
+                layout
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <TemplatedResumeDocument scale={currentZoom} />
+              </motion.div>
+
+              {/* Page indicator */}
+              <p className="no-print mt-4 text-sm text-muted-foreground">Page 1 of 1</p>
             </motion.div>
 
-            {/* Page indicator */}
-            <p className="no-print mt-4 text-center text-sm text-muted-foreground">Page 1 of 1</p>
-          </motion.div>
+            {/* ATS Score Panel - Sticky sidebar */}
+            <aside className="no-print lg:sticky lg:top-20 lg:self-start">
+              <ATSScorePanel />
+            </aside>
+          </div>
 
           {/* Empty state prompt */}
           {!hasMinimumContent && (
@@ -231,6 +274,52 @@ function PreviewPage() {
             </motion.div>
           )}
         </main>
+
+        {/* Template Selector Modal */}
+        <AnimatePresence>
+          {showTemplates && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="no-print fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+                onClick={() => setShowTemplates(false)}
+              />
+
+              {/* Modal */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="no-print fixed inset-4 z-50 mx-auto max-w-4xl overflow-hidden rounded-xl border border-border bg-background shadow-2xl md:inset-y-8"
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-border bg-muted/30 px-6 py-4">
+                  <div>
+                    <h2 className="font-display text-xl font-semibold">Choose a Template</h2>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Select a template that matches your industry and style preference
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setShowTemplates(false)}
+                    className="rounded-full p-2 hover:bg-muted"
+                    aria-label="Close"
+                  >
+                    <X className="h-5 w-5 text-muted-foreground" />
+                  </button>
+                </div>
+
+                {/* Content */}
+                <div className="max-h-[calc(100vh-12rem)] overflow-y-auto p-6">
+                  <TemplateSelector onChange={() => setShowTemplates(false)} />
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </>
   )

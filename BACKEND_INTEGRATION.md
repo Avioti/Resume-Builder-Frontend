@@ -1,6 +1,6 @@
-# Craftfolio Backend Integration Guide
+# BeatTheATS Backend Integration Guide
 
-This document outlines all the integration points where the Craftfolio frontend expects to communicate with a backend API.
+This document outlines all the integration points where the BeatTheATS frontend expects to communicate with a backend API.
 
 ## Overview
 
@@ -157,7 +157,7 @@ GET  /api/shared/:token         // Get shared resume (public)
 
 // Response:
 {
-  shareUrl: string,    // e.g., https://craftfolio.app/r/abc123
+  shareUrl: string,    // e.g., https://beattheats.com/r/abc123
   token: string,
   expiresAt?: string
 }
@@ -196,7 +196,7 @@ Create a `.env` file (not committed) with:
 
 ```env
 # API
-VITE_API_URL=https://api.craftfolio.app
+VITE_API_URL=https://api.beattheats.com
 VITE_API_TIMEOUT=30000
 
 # Auth (if using OAuth)

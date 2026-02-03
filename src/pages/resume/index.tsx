@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowLeft, User, Briefcase, GraduationCap, Award, Check } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getBuilderLayout } from 'src/components/layout'
-import { useResume } from 'src/lib/resume-context'
+import { useExtendedResume } from 'src/lib/extended-resume-context'
 import { PersonalInfoForm, ExperienceForm, EducationForm, SkillsForm } from 'src/components/resume-forms'
 import { MiniPreview } from 'src/components/resume-preview'
+import { TemplateSelector } from 'src/components/template-selector'
+import { ATSScorePanel } from 'src/components/ats-score-panel'
 
 // Section definitions
 const SECTIONS = [
@@ -20,7 +22,7 @@ type SectionId = (typeof SECTIONS)[number]['id']
 
 function ResumePage() {
   const [activeSection, setActiveSection] = useState<SectionId>('personal')
-  const { isPersonalComplete, isExperienceComplete, isEducationComplete, isSkillsComplete } = useResume()
+  const { isPersonalComplete, isExperienceComplete, isEducationComplete, isSkillsComplete } = useExtendedResume()
 
   // Map completion status
   const completionStatus: Record<SectionId, boolean> = {
@@ -68,8 +70,8 @@ function ResumePage() {
   return (
     <>
       <Helmet>
-        <title>Build Your Resume — Craftfolio</title>
-        <meta name="description" content="Create your professional resume with our guided step-by-step editor." />
+        <title>Build Your Resume — BeatTheATS</title>
+        <meta name="description" content="Create your ATS-optimized resume with our guided step-by-step editor." />
       </Helmet>
 
       <div className="container py-8">
@@ -190,6 +192,16 @@ function ResumePage() {
                   Open full preview →
                 </Link>
               )}
+            </div>
+
+            {/* Compact Template Selector */}
+            <div className="mt-6 rounded-lg border border-border bg-card p-4">
+              <TemplateSelector compact />
+            </div>
+
+            {/* Compact ATS Score */}
+            <div className="mt-4">
+              <ATSScorePanel compact />
             </div>
           </aside>
         </div>

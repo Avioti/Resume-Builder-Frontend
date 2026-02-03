@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react'
-import { useResume, Experience } from 'src/lib/resume-context'
+import { useExtendedResume, Experience } from 'src/lib/extended-resume-context'
 import { Input, Textarea } from './personal-info'
 
 interface ExperienceItemProps {
@@ -10,7 +10,7 @@ interface ExperienceItemProps {
 }
 
 function ExperienceItem({ experience, isOpen, onToggle }: ExperienceItemProps) {
-  const { updateExperience, removeExperience } = useResume()
+  const { updateExperience, removeExperience } = useExtendedResume()
 
   return (
     <div className="rounded-lg border border-border bg-background">
@@ -115,7 +115,7 @@ function ExperienceItem({ experience, isOpen, onToggle }: ExperienceItemProps) {
 }
 
 export function ExperienceForm() {
-  const { data, addExperience } = useResume()
+  const { data, addExperience } = useExtendedResume()
   const [openId, setOpenId] = useState<string | null>(
     data.experiences.length > 0 ? data.experiences[data.experiences.length - 1].id : null,
   )
